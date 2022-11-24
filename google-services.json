@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "618987114828",
+    "project_id": "clarion-investment",
+    "storage_bucket": "clarion-investment.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618987114828:android:23d2d320ce198234acffe9",
+        "android_client_info": {
+          "package_name": "com.clarion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "618987114828-dsgd4i8mhcvdkt812bctgpvviqon31da.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHQrj69stCnvFzPlH9K3qn7Xxi-OCMcVE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "618987114828-dsgd4i8mhcvdkt812bctgpvviqon31da.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

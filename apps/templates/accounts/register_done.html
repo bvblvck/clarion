@@ -1,0 +1,10 @@
+{% extends "layouts/base-fullscreen.html" %}
+{% block content %}
+<div class="text-center">
+<h1>Welcome {{ user.username }}!</h1>
+<p>Your account has been successfully created. Now you can</p>
+<a href="{% url 'login' %}" class="btn btn-secondary d-inline-flex align-items-center me-4">
+    Login
+</a>
+{% endblock content %}
+</div>

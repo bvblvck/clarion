@@ -1,0 +1,79 @@
+{% extends 'layouts/base.html' %}
+{% block title %} withdrawal {% endblock title %}
+{% block content %}
+<div id="wallet">
+    <!-- BTC -->
+    <section class="card border-0 shadow">
+        <div class="card-content">
+            <div class="card-body">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-sm-7">
+                             <large>Your Wallet Balance: <b>  *All balances are in USD.</b></large>
+                        </div>
+                        <div class="col-sm-4">
+                            <a class="card justify-content-center align-items-center me-2" href="transactions.html">
+                            <h2 class="fw bold">0.00</h2>
+                            </a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/ BTC -->
+    <!-- ETH -->
+    <!--/ ETH -->
+    <!-- TetherUSD -->
+    <!--/ TetherUSD -->
+    <!-- USD, EUR, other fiat currencies -->
+    <!--/ USD, EUR, other fiat currencies -->
+</div>
+<br><br>
+<h3>Withdrawal</h3>
+<div id="wallet">
+    <!-- BTC -->
+    <section class="card border-0 shadow">
+        <div class="card-content">
+            <div class="card-body">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <small>Cryptocurrency are sent directly to your wallet address or any specified wallet. <b>The value should be entered in USD.</b></small>
+                        </div>
+                        <div class="col-sm-4">
+
+
+
+
+
+
+<form method="post"><input type="hidden" name="form_id" value="16655203578037"><input type="hidden" name="form_token" value="4fd364af368eed3a96de681e49abe626">
+<input type="hidden" name="a" value="withdraw">
+<input type="hidden" name="action" value="preview">
+<input type="hidden" name="say" value="">
+
+
+
+<fieldset class="form-label-group">
+    <select name="ec" class="form-control">
+        <option value="">Choose Payment System</option>
+     </select>
+ </fieldset>
+
+<br><br>
+You have no funds to withdraw.
+</form>
+
+
+
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+    <br>
+{% endblock %}

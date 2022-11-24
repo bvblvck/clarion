@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- Primary Meta Tags -->
+
+<title>
+    Clarion - Home
+</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="title" content="Clarion Investments, LLC">
+<meta name="author" content="bvblvck, Web Development">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://clarion-inv.herokuapp.com">
+<meta property="og:title" content="Clarion Investments, LLC">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://ibb.co/JBXXK8p">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://clarion-inv.herokuapp.com">
+<meta property="twitter:title" content="Clarion Investments, LLC">
+<meta property="twitter:description" content="">
+<meta property="twitter:image" content="https://ibb.co/JBXXK8p">
+
+<!-- Favicon -->
+<link rel="apple-touch-icon" sizes="120x120" href="/static/assets/img/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/static/assets/img/favicon/logo2.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/static/assets/img/favicon/logo2.png">
+<link rel="manifest" href="/static/assets/img/favicon/site.webmanifest">
+<link rel="mask-icon" href="/static/assets/img/favicon/safari-pinned-tab.svg" color="#ffffff">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+
+<!-- Sweet Alert -->
+<link type="text/css" href="/static/assets/vendor/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
+
+<!-- Notyf -->
+<link type="text/css" href="/static/assets/vendor/notyf/notyf.min.css" rel="stylesheet">
+
+<!-- Volt CSS -->
+<link type="text/css" href="/static/assets/css/volt.css" rel="stylesheet">
+
+<!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
+
+</head>
+<body>
+
+    <header class="header-global">
+        <nav id="navbar-main" aria-label="Primary navigation" class="navbar navbar-main navbar-expand-lg navbar-theme-primary pt-4 navbar-dark">
+            <div class="container position-relative">
+                <div class="navbar-collapse collapse" id="navbar_global">
+                    <div class="navbar-collapse-header">
+                        <div class="row">
+                            <div class="col-6 collapse-brand">
+                                <a href="/">
+                                    <img src="/static/assets/img/logo2.png" alt="Clarion logo">
+                                </a>
+                            </div>
+                            <div class="col-6 collapse-close">
+                                <a href="#navbar_global" class="fas fa-times" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" title="close" aria-label="Toggle navigation"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+                        {% if user.is_authenticated %}
+                        <li class="nav-item me-2">
+                            <a href="dashboard.html" class="nav-link">Dashboard</a>
+                        </li>
+                        <li class="nav-item me-2">
+                            <a href="{% url 'logout' %}" class="nav-link">logout</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item me-2">
+                            <a href="{% url 'login' %}" class="nav-link">Login</a>
+                        </li>
+                        <li class="nav-item me-2">
+                            <a href="{% url 'register' %}" class="nav-link">Register</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                    <ul class="navbar-nav  align-items-lg-right">
+                        <li class="nav-item me-2">
+                            <a href="dashboard.html" class="nav-link">
+                                <img src="static/assets/img/logo2.png" alt="clarion logo" height="30px" width="30px">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Hero -->
+        <section class="section-header overflow-hidden pt-7 pt-lg-8 pb-9 pb-lg-12 bg-primary text-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h1 class="fw-bolder">Clarion</h1>
+                        <h2 class="lead fw-normal text-muted mb-5">
+                            Crypto - Investments, LLC
+                        </h2>
+                        <!-- Button Modal -->
+                        <div class="d-flex align-items-center justify-content-center mb-5">
+                            {% if user.is_authenticated %}
+                            <a href="/dashboard.html" class="btn btn-secondary d-inline-flex align-items-center me-4">
+                                Go to my Dashboard
+                            </a>
+                            {% else %}
+                            <a href="{% url 'register' %}" class="btn btn-secondary d-inline-flex align-items-center me-4">
+                                <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11 4a1 1 0 10-2 0v4a1 1 0 102 0V7zm-3 1a1 1 0 10-2 0v3a1 1 0 102 0V8zM8 9a1 1 0 00-2 0v2a1 1 0 102 0V9z" clip-rule="evenodd"></path></svg>
+                                Register
+                            </a>  
+                            {% endif %}                             
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <figure class="position-absolute bottom-0 left-0 w-100 d-none d-md-block mb-n2"><svg class="home-pattern" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 185.4"><path d="M3000,0v185.4H0V0c496.4,115.6,996.4,173.4,1500,173.4S2503.6,115.6,3000,0z"></path></svg></figure>       
+        </section>
+        <div class="container">
+                <div class="row justify-content-center mb-5 mb-lg-6">
+                    <div class="col-12 text-center">
+                        <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/coinPriceBlock.js"></script><div id="coinmarketcap-widget-coin-price-block" coins="1,1027,825,2,3890,1831" currency="USD" theme="light" transparent="true" show-symbol-logo="true"></div>
+                    </div>
+                </div>
+        </div>
+        <section class="section section-lg bg-gray-800 text-white">
+            <div class="container">
+                <div class="row justify-content-center mb-5 mb-lg-6">
+                    <div class="col-12 text-center">
+                        <h2 class="h1 px-lg-5">No fuss</h2>
+                        <p class="lead px-lg-8"><strong> Clarion Investments, LLC </strong> a trusted investment company offering our investors access to high-growth and secure investment opportunities in the Crypto Currency market. Our company benefits from an extensive network of global clients and Professionals making sure your profit is secure.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card bg-white shadow-soft text-primary rounded mb-4">
+                            <div class="px-3 px-lg-4 py-5 text-center">
+                                <svg class="icon icon-md mb-3" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="ddos" role="img" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 128 128" viewBox="0 0 128 128"><path fill="#1d75b9" d="M72.3,74.1L72.3,74.1c-1.1-0.7-2.4-1.3-3.5-1.8l-0.3-0.2c-0.7-0.3-1.3-0.6-2-0.9c-0.4-0.2-0.8-0.4-1.3-0.6
+                                    l-0.2-0.1c-1.1-0.5-2.1-1-3.1-1.6c-1.5-0.9-2-3-1.3-5.1c0.4-1.1,1.1-2.4,3.9-2.4c2.1,0,3.5,0.9,4.1,2.7c0.2,0.6,0.3,1.3,0.4,1.9
+                                    l0.2,1h7.5l0-0.3c0.2-2-0.3-4.4-1.3-6.2c-1.5-2.6-4-4.2-7.6-5.1L67,55.3V50h-4.6v5.1L61,55.5c-1.2,0.3-2.2,0.7-3.2,1.1
+                                    c-3.1,1.6-5.1,4.6-5.4,8.2c-0.3,3.5,1.2,6.8,4,8.8c1.5,1.1,3.1,1.8,4.6,2.5c0.7,0.3,1.4,0.6,2,0.9c0.5,0.2,1,0.5,1.4,0.7
+                                    c1,0.5,1.9,0.9,2.8,1.5c1.5,1,2.1,3.1,1.5,5.1c-0.4,1.2-1.3,2.6-3.9,2.6l-0.6,0c-0.3,0-0.6,0-0.9,0c-2.4-0.2-4.1-1.8-4.3-4.2
+                                    l-0.2-1.5h-7.4l0,0.3c-0.6,6,2.8,9.8,10.2,11.6l0.5,0.1v4.8h4.6v-5l1-0.1c0.7-0.1,1.2-0.3,1.8-0.4c4.3-1.3,6.7-4,7.3-8
+                                    C77.3,79.8,75.7,76.2,72.3,74.1z"/><path fill="#2d3e50" d="M99.4,36.4l6.2-6.1c0.5-0.5,0.4-1.3-0.1-1.7l-8.3-6.1c-0.5-0.4-1.3-0.2-1.6,0.4l-4,7.5
+                                    C84.6,26,76.6,23.2,68,22.5v-7.9h7c1.3,0,2.3-1,2.3-2.3V4.7c0-1.3-1-2.3-2.3-2.3H64H53c-1.3,0-2.3,1-2.3,2.3v7.6
+                                    c0,1.3,1,2.3,2.3,2.3h7v7.9c-8.6,0.7-16.6,3.4-23.5,7.8l-4-7.5c-0.3-0.6-1.1-0.8-1.6-0.4l-8.3,6.1C22,29,22,29.8,22.5,30.3l6.2,6.1
+                                    c-10,9.4-16.2,22.7-16.2,37.6c0,28.6,23,51.6,51.6,51.6s51.6-23,51.6-51.6C115.6,59.1,109.4,45.8,99.4,36.4z M98.1,100.4
+                                    c-0.3,0.4-0.6,0.7-0.9,1.1L95,99.4c-1.1-1.1-2.9-1.1-4,0c-0.5,0.5-0.8,1.2-0.8,2c0,0.7,0.3,1.5,0.8,2l2.2,2.2
+                                    c-7.3,6.5-16.6,10.4-26.4,11.1v-3.2c0-1.6-1.2-2.8-2.8-2.8c-1.6,0-2.8,1.2-2.8,2.8v3.2c-9.8-0.6-19.1-4.5-26.4-11.1l2.2-2.2
+                                    c0.5-0.5,0.8-1.3,0.8-2c0-0.7-0.3-1.5-0.8-2c-1.1-1.1-2.9-1.1-4,0l-2.1,2.1c-0.3-0.3-0.6-0.7-0.9-1.1c-5.2-6.7-8.5-14.9-9-23.8h2.5
+                                    c1.5,0,2.8-1.2,2.9-2.7c-0.1-1.5-1.4-2.7-2.9-2.7H21c0.5-9,3.8-17.2,9-23.8c0.3-0.4,0.6-0.7,0.9-1.1l2.1,2.1c1.1,1.1,2.9,1.1,4,0
+                                    c0.5-0.5,0.8-1.2,0.8-2c0-0.7-0.3-1.5-0.8-2l-2.2-2.2c7.3-6.5,16.6-10.4,26.4-11.1v3.2c0,1.6,1.2,2.8,2.8,2.8
+                                    c1.6,0,2.8-1.2,2.8-2.8v-3.2c9.8,0.6,19.1,4.5,26.4,11.1L91,44.6c-0.5,0.5-0.8,1.3-0.8,2c0,0.7,0.3,1.5,0.8,2c1.1,1.1,2.9,1.1,4,0
+                                    l2.1-2.1c0.3,0.3,0.6,0.7,0.9,1.1c5.2,6.7,8.5,14.9,9,23.8h-2.5c-1.5,0-2.8,1.2-2.9,2.7c0.1,1.5,1.4,2.7,2.9,2.7h2.5
+                                    C106.5,85.6,103.2,93.8,98.1,100.4z"/></svg>
+                                <h5 class="fw-bold text-primary">Easy Deposit</h5>
+                                <p class="mb-0 text-gray-600">Investment starts with as low as one confirmation</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card bg-white shadow-soft text-primary rounded mb-4">
+                            <div class="px-3 px-lg-4 py-5 text-center">
+                                <svg class="icon icon-md mb-3" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="ddos" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path fill="#656766" d="M27.427 37.974H3.372A2.372 2.372 0 0 0 1 40.346v5.685a2.372 2.372 0 0 0 2.372 2.371h24.055A2.372 2.372 0 0 0 29.8 46.03v-5.684a2.372 2.372 0 0 0-2.372-2.372zm0-13.521H3.372A2.372 2.372 0 0 0 1 26.825v5.685a2.372 2.372 0 0 0 2.372 2.372h24.055A2.372 2.372 0 0 0 29.8 32.51v-5.685a2.372 2.372 0 0 0-2.372-2.372zm0-13.514H3.372A2.372 2.372 0 0 0 1 13.311v5.685a2.372 2.372 0 0 0 2.372 2.372h24.055a2.372 2.372 0 0 0 2.372-2.372v-5.685a2.372 2.372 0 0 0-2.372-2.372z"/><path fill="#4E4C4D" d="M3.545 34.882h23.709v3.092H3.545zM3.545 21.361h23.709v3.092H3.545z"/><circle cx="6.555" cy="16.154" r="2.007" fill="#EC6E62"/><circle cx="12.259" cy="16.154" r="2.007" fill="#85BD57"/><circle cx="6.555" cy="29.667" r="2.007" fill="#EC6E62"/><circle cx="12.259" cy="29.667" r="2.007" fill="#85BD57"/><circle cx="6.555" cy="43.188" r="2.007" fill="#EC6E62"/><circle cx="12.259" cy="43.188" r="2.007" fill="#85BD57"/><path fill="#53B1E2" d="M46.786 5.778C42.285 6.314 38.58 4.96 35.5 2.14a2.034 2.034 0 0 0-2.766 0c-3.08 2.82-6.784 4.174-11.285 3.638a1.986 1.986 0 0 0-2.21 2.078c.952 16.05 10.979 22.004 14.013 23.446a2.004 2.004 0 0 0 1.73 0c3.034-1.442 13.061-7.395 14.013-23.446a1.986 1.986 0 0 0-2.21-2.078z"/><path fill="#22A7D4" d="M34.114 28.386c-2.841-1.445-10.582-6.533-11.785-19.517.342.019.68.029 1.015.029 4.016 0 7.628-1.335 10.774-3.976 3.146 2.64 6.758 3.976 10.773 3.976.335 0 .673-.01 1.014-.029-1.211 12.959-8.991 18.08-11.791 19.517z"/></svg>
+                                <h5 class="fw-bold text-primary">DDOS</h5>
+                                <p class="mb-0 text-gray-600">Strong Protection from DDOS Attacks</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card bg-white shadow-soft text-primary rounded mb-4">
+                            <div class="px-3 px-lg-4 py-5 text-center">
+                                <svg class="icon icon-md mb-3" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="support" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M49 27c0-2.757-2.243-5-5-5h-2v-3c0-9.374-7.626-17-17-17S8 9.626 8 19v3H6c-2.757 0-5 2.243-5 5v6c0 2.757 2.243 5 5 5h6V22h-2v-3c0-8.271 6.729-15 15-15s15 6.729 15 15v3h-2v16h2v5c0 1.654-1.346 3-3 3H27v2h10c2.757 0 5-2.243 5-5v-5h2c2.757 0 5-2.243 5-5v-6zm-39 9H6c-1.654 0-3-1.346-3-3v-6c0-1.654 1.346-3 3-3h4v12zm37-3c0 1.654-1.346 3-3 3h-4V24h4c1.654 0 3 1.346 3 3v6z"/></svg>
+                                <h5 class="fw-bold text-primary">Support</h5>
+                                <p class="mb-0 text-gray-600">Fast and Customer-friendly Support</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card bg-white shadow-soft text-primary rounded mb-4">
+                            <div class="px-3 px-lg-4 py-5 text-center">
+                                <svg class="icon icon-md mb-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z"></path></svg>
+                                <h5 class="fw-bold text-primary">Flexibility</h5>
+                                <p class="mb-0 text-gray-600">Choose from a wide range of investment options</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>    
+    </main>
+
+    <footer class="footer py-6 bg-gray-800 text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col mb-md-0">
+                    <a href="" target="_blank" class="d-flex justify-content-center">
+                        <img src="/static/assets/img/logo2.png" height="35" class="mb-4" alt="Clarion Logo">
+                    </a>
+                <div class="d-flex text-center justify-content-center align-items-center" role="contentinfo">
+                    <p class="fw-normal font-small mb-0">
+                        &copy; Clarion 2019-<span class="current-year">2022</span></p>
+                    </div>
+                </div>
+                <div class="container d-flex justify-content-center"id="google_translate_element"></div>
+            </div>
+        </div>
+    </footer>
+
+    {% include 'includes/scripts.html' %}
+
+</body>
+</html>
