@@ -4,8 +4,8 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from captcha.fields import ReCaptchaField
-from captcha.widgets import ReCaptchaV2Checkbox
+from .models import deposit
+
 
 
 class LoginForm(forms.Form):
@@ -59,3 +59,48 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2')
+
+
+class deposit_form(forms.ModelForm):
+    TOKENS = (
+        ('BTC', 'Bitcoin'),
+        ('ETH', 'Ethereum'),
+        ('USDT', 'Tether'),
+    )
+
+    PLANS = (
+        ('S', 'Starter'),
+        ('P', 'Pro'),
+        ('E', 'Enterprise'),
+    )
+
+    amount = forms.IntegerField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "amount",
+                "class": "form-control",
+                "type": "number",
+            }
+        ))
+
+    plan = forms.ChoiceField(
+        choices=PLANS,
+        widget=forms.RadioSelect(
+            attrs={
+                "class": "select"
+            }
+        )
+        )
+
+    token = forms.ChoiceField(
+        choices=TOKENS,
+        widget=forms.RadioSelect(
+            
+            attrs={
+                "class": "radio"
+            }
+        ))
+
+    class Meta:
+        model = deposit
+        fields = ('amount', 'plan', 'token')

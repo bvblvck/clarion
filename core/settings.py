@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.home',
+    'apps.authentication',
 ]
 
 CRYPTOCURRENCY_PAYMENT = {
@@ -155,3 +156,4 @@ EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = os.path.join(CORE_DIR, 'sent_emails')
 #############################################################
 #############################################################
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

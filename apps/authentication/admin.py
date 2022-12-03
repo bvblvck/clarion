@@ -2,5 +2,7 @@
 
 
 from django.contrib import admin
+from .models import deposit
 
 # Register your models here.
+admin.site.register(deposit)

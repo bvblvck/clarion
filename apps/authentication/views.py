@@ -2,9 +2,11 @@
 
 
 # Create your views here.
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth import authenticate, login
-from .forms import LoginForm, SignUpForm
+from .forms import LoginForm, SignUpForm, deposit_form
+from .models import deposit
+from django.contrib.auth.decorators import login_required
 
 
 def login_view(request):
@@ -56,4 +58,13 @@ def register_user(request):
 def register_done(request):
     return render(request, 'accounts/register_done.html')
 
-    
+@login_required
+def deposit_view(request):
+    if request.method == 'POST':
+        form = deposit_form(request.POST)
+        if form.is_valid:
+            form.save
+            return render(request, 'accounts/deposit_confirm.html')
+    else:
+        form = deposit_form()
+    return render(request, "accounts/deposit.html", {"form": form})

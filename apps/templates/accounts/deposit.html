@@ -1,0 +1,26 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Deposit {% endblock title %}
+
+{% block content %}
+<br><br><br>
+<center>
+<h2 class="heading"> Deposit </h2>
+</center>
+<br><br>
+<div class="container">
+    <div class="card shadow mb-4 ">
+        <div class="card-body">
+            
+            <form method="POST" action=""> 
+                {% csrf_token %}
+                {{form.as_p}}
+                <div class="mt-3">
+                    <button class="btn btn-gray-800 mt-2 animate-up-4" type="submit">Save Order</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<br><br><br>
+{% endblock content %}
