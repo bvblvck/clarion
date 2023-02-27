@@ -14,7 +14,7 @@
             
             <form method="POST" action=""> 
                 {% csrf_token %}
-                {{form.as_p}}
+                {{ form.as_p }}
                 <div class="mt-3">
                     <button class="btn btn-gray-800 mt-2 animate-up-4" type="submit">Save Order</button>
                 </div>

@@ -4,11 +4,7 @@
     "version": "1.0.4",
     "description": "Clarion Investments, LLC",
     "scripts": {},
-    "repository": {
-        "type": "git",
-        "url": "https://git.heroku.com/clarion-inv.git"
-    },
-    "author": "bvblvck (https://clarion-inv.herokuapp.com)",
+    "author": "bvblvck (https://clarion.onrender.com)",
     "engines": {
         "node": ">=10.0.0"
     },

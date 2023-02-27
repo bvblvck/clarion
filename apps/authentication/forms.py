@@ -79,7 +79,6 @@ class deposit_form(forms.ModelForm):
             attrs={
                 "placeholder": "amount",
                 "class": "form-control",
-                "type": "number",
             }
         ))
 
@@ -87,7 +86,7 @@ class deposit_form(forms.ModelForm):
         choices=PLANS,
         widget=forms.RadioSelect(
             attrs={
-                "class": "select"
+                "class": "dropdown"
             }
         )
         )
@@ -97,7 +96,7 @@ class deposit_form(forms.ModelForm):
         widget=forms.RadioSelect(
             
             attrs={
-                "class": "radio"
+                "class": "dropdown"
             }
         ))
 

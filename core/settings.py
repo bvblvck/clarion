@@ -30,23 +30,6 @@ INSTALLED_APPS = [
     'apps.authentication',
 ]
 
-CRYPTOCURRENCY_PAYMENT = {
-    "BITCOIN": {
-        "CODE": "btc",
-        "BACKEND": "merchant_wallet.backends.btc.BitcoinBackend",
-        "FEE": 0.00,
-        "REFRESH_PRICE_AFTER_MINUTE": 15,
-        "REUSE_ADDRESS": False,
-        "ACTIVE": True,
-        "MASTER_PUBLIC_KEY": 'PUT_YOUR_WALLET_MASTER_PUBLIC_KEY',
-        "CANCEL_UNPAID_PAYMENT_HRS": 3,
-        "CREATE_NEW_UNDERPAID_PAYMENT": True,
-        "IGNORE_UNDERPAYMENT_AMOUNT": 10,
-        "IGNORE_CONFIRMED_BALANCE_WITHOUT_SAVED_HASH_MINS": 20,
-        "BALANCE_CONFIRMATION_NUM": 1,
-        "ALLOW_ANONYMOUS_PAYMENT": True,
-    }
- }
 #RECAPTCHA_PUBLIC_KEY = '6LepxmYiAAAAAIxjWCwbRIhRo1BK52xuFFKFgVmw'
 #RECAPTCHA_PRIVATE_KEY = '6LepxmYiAAAAALM4ucvJLoBFMyz9jHp7dPr1fgr5'
 SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
@@ -139,7 +122,7 @@ STATICFILES_DIRS = (
     os.path.join(CORE_DIR, 'apps/static'),
 )
 
-SITE_NAME = 'clarion-investments.com'
+SITE_NAME = 'clarion-trades.com'
 
 EMAIL_USE_TLS = True  
 EMAIL_HOST = 'smtp.gmail.com'  
@@ -147,7 +130,7 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'soluwatoogun@gmail.com'  
 EMAIL_HOST_PASSWORD = 'ajcpmsglrjougawn'
 ADMINS = (
-('blackwolf', 'soluwatoogun@gmail.com'),
+('webmaster', 'soluwatoogun@gmail.com'),
 )
 MANAGERS = ADMINS
 

@@ -85,6 +85,20 @@ d.addEventListener("DOMContentLoaded", function(event) {
         el.style.color = 'url(' + el.getAttribute('data-color') + ')';
     });
 
+    function myFunction() {
+    // Get the text field
+    var copyText = document.getElementById("myInput");
+  
+    // Select the text field
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); // For mobile devices
+  
+     // Copy the text inside the text field
+    navigator.clipboard.writeText(copyText.value);
+  
+    // Alert the copied text
+    alert("Copied the text: " + copyText.value);
+  }
     //Tooltips
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
@@ -319,6 +333,21 @@ d.addEventListener("DOMContentLoaded", function(event) {
             autoplay: 2000
           }).mount();
     }
+
+    function copysmth() {
+        // Get the text field
+        var copyText = document.getElementById("myInput");
+      
+        // Select the text field
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); // For mobile devices
+      
+         // Copy the text inside the text field
+        navigator.clipboard.writeText(copyText.value);
+      
+        // Alert the copied text
+        alert("Copied the text: " + copyText.value);
+      }
 
     // Pricing countup
     var billingSwitchEl = d.getElementById('billingSwitch');

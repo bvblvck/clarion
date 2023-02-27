@@ -1,18 +1,100 @@
 {% extends 'layouts/base.html' %}
+{% block title %}Confirm your Deposit{% endblock title %}
+{% block js %}
+function copysmth() {
+    // Get the text field
+    var copyText = document.getElementById("myInput");
+  
+    // Select the text field
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); // For mobile devices
+  
+     // Copy the text inside the text field
+    navigator.clipboard.writeText(copyText.value);
+  
+    // Alert the copied text
+    alert("Copied the text: " + copyText.value);
+  }
+{% endblock js %}
 
 {% block content %}
 <div class="container align-content-lg-center justify-content-center">
     <div class="card mb-4">
     <center>
         <div class="card-img-top align-items-lg-center">
-            <img src="/static/assets/img/avatar.png">
+            <img src="/static/assets/img/deposit.png">
         </div>
         <div class="card-body align-items-center">
-            <h2 class="card-header">Deposit Confirmation</h2>
-            <div class=""
+            <h2 class="card-header">Order Open</h2>
+            <div class="card-body">
+                <p>
+                    Please send the corresponding token to the following address                
+                </p>
+                <div class="row-cols-md-auto">
+                    <div class="form-group">
+                        <label for="add"></label>
+                        <input class="form-control" id="add" type="text" placeholder="addr_" value="{{ request.add }}" readonly>
+                        <button class="btn btn-gray-800 animate-hover" onclick="copysmth()">Copy</button>
+                    </div>
+                </div>
+                <br><br><br>
+                <div class="card shadow-lg">
+                <div class="container-fluid">
+                    <br><br>
+                    <div class="row-cols-md-auto">
+                        <div class="form-group">
+                            <label for="amount">Amount</label>
+                            <input class="form-control" id="amount" type="text" placeholder="amount" value="{{ request.amount }}" readonly>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row-cols-md-auto">
+                        <div class="form-group">
+                            <label for="token">Token</label>
+                            <input class="form-control" id="token" type="text" placeholder="token" value="{{ request.token }}" readonly>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="row-cols-md-auto">
+                        <div class="form-group">
+                            <label for="Plan">Plan</label>
+                            <input class="form-control" id="plan" type="text" placeholder="Plan" value="{{ request.plan }}" readonly>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="mt-3">
+                        <button class="btn btn-gray-800 mt-2 animate-up-4" data-toggle="modal" data-target="#modal_payment" type="button">I have Completed Payment</button>
+                    </div>
+                    <br><br>
+                </div>
+            </div>
+            </div>
         </div>
         
     </center>
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="modal_payment" tabindex="-1" role="dialog" aria-labelledby="modal_payment_ok" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal_payment_ok_title">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p> As soon as one confirmation is recieved for your deposit, balance will be shown in your dashboard and investment will start immediately.
+          </p>
+        </div>
+        <div class="modal-footer">
+            <a href="/dashboard.html">
+          <button type="button" class="btn btn-gray-800 mt-2 animate-up-4">Go to dashboard</button>
+            </a>
+      </div>
+    </div>
+  </div>
 {% endblock content %}

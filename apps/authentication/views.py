@@ -60,11 +60,32 @@ def register_done(request):
 
 @login_required
 def deposit_view(request):
+    add = None
+    success = False
+
     if request.method == 'POST':
         form = deposit_form(request.POST)
-        if form.is_valid:
-            form.save
+        if form.is_valid():
+            token = form.cleaned_data.get("token")
+            amount = form.cleaned_data.get("amount")
+            plan = form.cleaned_data.get("plan")
+            order_id = form.cleaned_data.get("order_id")
+            payment = deposit(token=token, plan=plan, amount=amount)
+            payment.save()
+
+            success = True
+
+            if token == "BTC":
+                add = "bitcoinaddress"
+
+            elif token == "ETH":
+                add = "ethaddress"
+
+            elif token == "USDT":
+                add = "tetheraddress"
+
             return render(request, 'accounts/deposit_confirm.html')
+
     else:
         form = deposit_form()
-    return render(request, "accounts/deposit.html", {"form": form})
+    return render(request, "accounts/deposit.html", {"form": form, "add": add, "success": success})
