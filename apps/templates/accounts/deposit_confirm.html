@@ -1,21 +1,5 @@
 {% extends 'layouts/base.html' %}
 {% block title %}Confirm your Deposit{% endblock title %}
-{% block js %}
-function copysmth() {
-    // Get the text field
-    var copyText = document.getElementById("myInput");
-  
-    // Select the text field
-    copyText.select();
-    copyText.setSelectionRange(0, 99999); // For mobile devices
-  
-     // Copy the text inside the text field
-    navigator.clipboard.writeText(copyText.value);
-  
-    // Alert the copied text
-    alert("Copied the text: " + copyText.value);
-  }
-{% endblock js %}
 
 {% block content %}
 <div class="container align-content-lg-center justify-content-center">
@@ -74,16 +58,13 @@ function copysmth() {
         
     </center>
     </div>
-</div>
-
-<!-- Modal -->
+    <!-- Modal -->
 <div class="modal fade" id="modal_payment" tabindex="-1" role="dialog" aria-labelledby="modal_payment_ok" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="modal_payment_ok_title">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+          <h5 class="modal-title" id="modal_payment_ok_title">Order Complete</h5>
+          <button type="button" class="btn-close" data-dismiss="modal" >
           </button>
         </div>
         <div class="modal-body">
@@ -97,4 +78,7 @@ function copysmth() {
       </div>
     </div>
   </div>
+</div>
+
+
 {% endblock content %}
