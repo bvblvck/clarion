@@ -73,19 +73,14 @@ def deposit_view(request):
             payment = deposit(token=token, plan=plan, amount=amount)
             payment.save()
 
+            objs = deposit.objects.all()
+            objs = deposit.objects.filter(plan=plan, amount=amount)
+
             success = True
+            add = "tetheraddress"
 
-            if token == "BTC":
-                add = "bitcoinaddress"
-
-            elif token == "ETH":
-                add = "ethaddress"
-
-            elif token == "USDT":
-                add = "tetheraddress"
-
-            return render(request, 'accounts/deposit_confirm.html')
+            return render(request, 'accounts/deposit_confirm.html', {"add": add, "objs":objs})
 
     else:
         form = deposit_form()
-    return render(request, "accounts/deposit.html", {"form": form, "add": add, "success": success})
+    return render(request, "accounts/deposit.html", {"form": form, "success": success})

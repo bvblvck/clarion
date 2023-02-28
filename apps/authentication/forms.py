@@ -63,15 +63,13 @@ class SignUpForm(UserCreationForm):
 
 class deposit_form(forms.ModelForm):
     TOKENS = (
-        ('BTC', 'Bitcoin'),
-        ('ETH', 'Ethereum'),
-        ('USDT', 'Tether'),
+        ('USDT', 'Tether[USDT]'),
     )
 
     PLANS = (
-        ('S', 'Starter'),
-        ('P', 'Pro'),
-        ('E', 'Enterprise'),
+        ('Starter', 'Starter'),
+        ('Pro', 'Pro'),
+        ('Enterprise', 'Enterprise'),
     )
 
     amount = forms.IntegerField(

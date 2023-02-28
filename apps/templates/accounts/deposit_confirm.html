@@ -17,18 +17,20 @@
                 <div class="row-cols-md-auto">
                     <div class="form-group">
                         <label for="add"></label>
-                        <input class="form-control" id="add" type="text" placeholder="addr_" value="{{ request.add }}" readonly>
+                        <input class="form-control" id="add" type="text" placeholder="addr_" value="{{ add }}" readonly>
+                        <br>
                         <button class="btn btn-gray-800 animate-hover" onclick="copysmth()">Copy</button>
                     </div>
                 </div>
                 <br><br><br>
+                {% for obj in objs %}
                 <div class="card shadow-lg">
                 <div class="container-fluid">
                     <br><br>
                     <div class="row-cols-md-auto">
                         <div class="form-group">
                             <label for="amount">Amount</label>
-                            <input class="form-control" id="amount" type="text" placeholder="amount" value="{{ request.amount }}" readonly>
+                            <input class="form-control" id="amount" type="text" placeholder="amount" value="{{ obj.amount }}" readonly>
                         </div>
                     </div>
                     <br>
@@ -36,14 +38,14 @@
                     <div class="row-cols-md-auto">
                         <div class="form-group">
                             <label for="token">Token</label>
-                            <input class="form-control" id="token" type="text" placeholder="token" value="{{ request.token }}" readonly>
+                            <input class="form-control" id="token" type="text" placeholder="token" value="USDT" readonly>
                         </div>
                     </div>
                     <br><br>
                     <div class="row-cols-md-auto">
                         <div class="form-group">
                             <label for="Plan">Plan</label>
-                            <input class="form-control" id="plan" type="text" placeholder="Plan" value="{{ request.plan }}" readonly>
+                            <input class="form-control" id="plan" type="text" placeholder="Plan" value="{{ obj.plan }}" readonly>
                         </div>
                     </div>
                     <br><br>
@@ -54,6 +56,7 @@
                 </div>
             </div>
             </div>
+            {% endfor %}
         </div>
         
     </center>
