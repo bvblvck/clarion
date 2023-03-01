@@ -28,7 +28,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.home',
     'apps.authentication',
-    'django_crontab',
 ]
 
 #RECAPTCHA_PUBLIC_KEY = '6LepxmYiAAAAAIxjWCwbRIhRo1BK52xuFFKFgVmw'
@@ -141,7 +140,3 @@ EMAIL_FILE_PATH = os.path.join(CORE_DIR, 'sent_emails')
 #############################################################
 #############################################################
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-CRONJOBS = [
-    ('0 0 * * *', 'apps.authentication.views.increase_field', '>> /tmp/cron.log')
-]
