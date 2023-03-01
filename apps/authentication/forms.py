@@ -63,7 +63,9 @@ class SignUpForm(UserCreationForm):
 
 class deposit_form(forms.ModelForm):
     TOKENS = (
-        ('USDT', 'Tether[USDT]'),
+        ('USDT', 'USDT'),
+        ('BTC', 'BTC'),
+        ('ETH', 'ETH'),
     )
 
     PLANS = (

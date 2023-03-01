@@ -13,3 +13,12 @@ class deposit(models.Model):
 
     def __str__(self):
         return str(self.order_id)
+
+class variables(models.Model):
+    USDT = models.CharField(max_length=9999, null=False, default="usdt_address")
+    BTC = models.CharField(max_length=9999, null=False, default="btc_address")
+    ETH = models.CharField(max_length=9999, null=False, default="eth_address")
+
+class others(models.Model):
+    total_orders = models.IntegerField(default=6248, null=False)
+    revenue = models.IntegerField(default=431594, null=False)

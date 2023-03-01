@@ -1,0 +1,62 @@
+{% extends 'layouts/base-fullscreen.html' %}
+{% load static %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="row">
+    <div class="col-lg-8 mx-auto">
+      <h1 class="text-center mb-4">About Us</h1>
+      <p>We are a team of experienced professionals in the field of cryptocurrency investment. Our mission is to provide our clients with a safe and reliable way to invest in the rapidly growing world of cryptocurrencies.</p>
+      <p>We believe that cryptocurrencies have the potential to revolutionize the financial industry and change the way we think about money. Our team is dedicated to helping our clients navigate this exciting and dynamic market.</p>
+      <p>At our company, we prioritize security and transparency. We use the latest technologies to ensure the safety of our clients' investments, and we provide regular updates and reports to keep our clients informed.</p>
+      <p>Whether you're a seasoned investor or just getting started in the world of cryptocurrencies, we're here to help you achieve your financial goals. Join us today and start investing in the future.</p>
+      <h2 class="mt-5 mb-3">Our Team</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <img src="{% static 'assets/img/team/other.jpg' %}" class="card-img-top" alt="Team Member 1">
+            <div class="card-body">
+              <h5 class="card-title">Joe McArthur</h5>
+              <p class="card-text">Investment Advisor</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="{% static 'assets/img/team/stephan.jpg' %}" class="card-img-top" alt="Team Member 2">
+            <div class="card-body">
+              <h5 class="card-title">Stephan Owen</h5>
+              <p class="card-text">Crypto Analyst</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="{% static 'assets/img/team/Mcarthur.webp' %}" class="card-img-top" alt="Team Member 3" height="240px" width="360px">
+            <div class="card-body">
+              <h5 class="card-title">Scott O'Brian</h5>
+              <p class="card-text">Blockchain Developer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="mt-5 mb-3">Our Services</h2>
+      <ul>
+        <li>Secure and reliable cryptocurrency investment</li>
+        <li>Expert advice and market analysis</li>
+        <li>24/7 customer support</li>
+        <li>Regular updates and reports</li>
+      </ul>
+      <h2 class="mt-5 mb-3">Contact Us</h2>
+      <ul>
+        <li>Clarion Investments, LLC</li>
+        <li>Office: Civic Center, Mountain View, CA 94041, USA</li>
+        <li>Email: clarioninvestments0@gmail.com</li>
+        <li>Phone: +1(304) 518-0588</li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,6 +1,37 @@
 {% extends 'layouts/base.html' %}
 {% block title %}Confirm your Deposit{% endblock title %}
 
+{% block javascripts %}
+<!-- Add the required JavaScript code to enable copy to clipboard functionality -->
+<script>
+    // Get the readonly input field
+    var input = document.getElementById("readonlyInput");
+  
+    // Get the copy button
+    var button = document.getElementById("copyButton");
+  
+    // Add a click event listener to the copy button
+    button.addEventListener("click", function() {
+      // Select the text in the input field
+      input.select();
+  
+      // Copy the selected text to the clipboard
+      document.execCommand("copy");
+  
+      // Show a tooltip to indicate that the text has been copied
+      button.setAttribute("data-bs-original-title", "Copied!");
+      var tooltip = bootstrap.Tooltip.getOrCreateInstance(button);
+      tooltip.show();
+  
+      // Reset the tooltip after 1 second
+      setTimeout(function() {
+        button.setAttribute("data-bs-original-title", "Copy to clipboard");
+        tooltip.hide();
+      }, 1000);
+    });
+  </script>  
+{% endblock javascripts %}
+
 {% block content %}
 <div class="container align-content-lg-center justify-content-center">
     <div class="card mb-4">
@@ -15,12 +46,15 @@
                     Please send the corresponding token to the following address                
                 </p>
                 <div class="row-cols-md-auto">
-                    <div class="form-group">
-                        <label for="add"></label>
-                        <input class="form-control" id="add" type="text" placeholder="addr_" value="{{ add }}" readonly>
-                        <br>
-                        <button class="btn btn-gray-800 animate-hover" onclick="copysmth()">Copy</button>
-                    </div>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="readonlyInput" readonly value="{{ add }}">
+                        <button class="btn btn-outline-secondary" type="button" id="copyButton" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+                                <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                                <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+                              </svg>
+                        </button>
+                      </div>
                 </div>
                 <br><br><br>
                 {% for obj in objs %}
@@ -38,7 +72,7 @@
                     <div class="row-cols-md-auto">
                         <div class="form-group">
                             <label for="token">Token</label>
-                            <input class="form-control" id="token" type="text" placeholder="token" value="USDT" readonly>
+                            <input class="form-control" id="token" type="text" placeholder="token" value="{{ obj.token }}" readonly>
                         </div>
                     </div>
                     <br><br>
@@ -49,9 +83,13 @@
                         </div>
                     </div>
                     <br><br>
+                    <br><br>
                     <div class="mt-3">
                         <button class="btn btn-gray-800 mt-2 animate-up-4" data-toggle="modal" data-target="#modal_payment" type="button">I have Completed Payment</button>
                     </div>
+                    <div class="mt-3">
+                      <button class="btn btn-danger mt-2 animate-up-4" data-toggle="modal" data-target="#cancel" type="button">Cancel Order</button>
+                  </div>
                     <br><br>
                 </div>
             </div>
@@ -81,6 +119,22 @@
       </div>
     </div>
   </div>
+</div>
+<div class="modal fade" id="cancel" tabindex="-1" role="dialog" aria-labelledby="modal_payment_cancelled" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal_payment_ok_title">Are you sure you want to cancel your Order?</h5>
+        <button type="button" class="btn-close" data-dismiss="modal" >
+        </button>
+      </div>
+      <div class="modal-footer">
+          <a href="/pricing.html">
+        <button type="button" class="btn btn-gray-800 mt-2 animate-up-4">OK</button>
+          </a>
+    </div>
+  </div>
+</div>
 </div>
 
 

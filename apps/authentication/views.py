@@ -5,8 +5,9 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm, SignUpForm, deposit_form
-from .models import deposit
+from .models import deposit, variables
 from django.contrib.auth.decorators import login_required
+from django.template import loader
 
 
 def login_view(request):
@@ -69,18 +70,44 @@ def deposit_view(request):
             token = form.cleaned_data.get("token")
             amount = form.cleaned_data.get("amount")
             plan = form.cleaned_data.get("plan")
-            order_id = form.cleaned_data.get("order_id")
             payment = deposit(token=token, plan=plan, amount=amount)
             payment.save()
 
             objs = deposit.objects.all()
-            objs = deposit.objects.filter(plan=plan, amount=amount)
+            objs = deposit.objects.filter(plan=plan, amount=amount, token=token)
+
 
             success = True
-            add = "tetheraddress"
+            variables_instance = variables.objects.first()
+
+            if payment.token == 'BTC':
+                add = variables_instance.BTC
+            elif payment.token == 'ETH':
+                add = variables_instance.ETH
+            elif payment.token == 'USDT':
+                add = variables_instance.USDT
 
             return render(request, 'accounts/deposit_confirm.html', {"add": add, "objs":objs})
 
     else:
         form = deposit_form()
     return render(request, "accounts/deposit.html", {"form": form, "success": success})
+
+
+def about(request):
+    return render(request,"accounts/about.html")
+
+from datetime import date, timedelta
+from .models import others
+
+def increase_field():
+    # Get today's date and the model object you want to update
+    today = date.today()
+    obj = others.objects.get(id=1)
+
+    # Check if the date has changed since the last update
+    if today != obj.last_update:
+        # Update the field and save the object
+        obj.total_orders += 1
+        obj.last_update = today
+        obj.save()

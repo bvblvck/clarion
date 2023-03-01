@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 from django.urls import path, reverse_lazy
-from .views import login_view, register_user, register_done, deposit_view
+from .views import login_view, register_user, register_done, deposit_view, about
 from django.contrib.auth.views import (LoginView, LogoutView, PasswordResetDoneView, PasswordResetView,
                                        PasswordResetCompleteView, PasswordResetConfirmView,
                                        PasswordChangeView, PasswordChangeDoneView,
@@ -28,4 +28,5 @@ urlpatterns = [
         template_name='accounts/password_reset_complete.html'), name='password_reset_complete'),
     path('register/done', register_done, name='register_done'),
     path('deposit', deposit_view, name="deposit"),
+    path('about', about, name="about")
 ]
